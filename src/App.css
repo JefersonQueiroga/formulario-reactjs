@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.menu a {
+  color: var(--text-h);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  color: var(--accent);
+}

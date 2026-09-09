@@ -1,30 +1,27 @@
 import { useState } from 'react'
-import CampoTexto from './CampoTexto'
-import Aluno from './Aluno'
-import './FormularioAluno.css'
+import { useNavigate } from 'react-router-dom'
+import CampoTexto from '../components/CampoTexto'
+import api from '../services/api'
+import './CadastroAluno.css'
 
-function FormularioAluno() {
+function CadastroAluno() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [cpf, setCpf] = useState('')
   const [cidade, setCidade] = useState('')
 
-  const [alunos, setAlunos] = useState([])
+  const navigate = useNavigate()
 
-  function handleSubmit(evento) {
+  async function handleSubmit(evento) {
     evento.preventDefault()
 
-    const novoAluno = { nome, email, cpf, cidade }
-    setAlunos([...alunos, novoAluno])
+    await api.post('/alunos', { nome, email, cpf, cidade })
 
-    setNome('')
-    setEmail('')
-    setCpf('')
-    setCidade('')
+    navigate('/alunos')
   }
 
   return (
-    <section className="formulario-aluno">
+    <section className="cadastro-aluno">
       <h1>Cadastro de Aluno</h1>
 
       <form onSubmit={handleSubmit}>
@@ -63,20 +60,8 @@ function FormularioAluno() {
 
         <button type="submit">Cadastrar</button>
       </form>
-
-      <div className="formulario-aluno-lista">
-        <h2>Alunos cadastrados</h2>
-
-        {alunos.length === 0 && <p>Nenhum aluno cadastrado ainda.</p>}
-
-        <ul>
-          {alunos.map((aluno) => (
-            <Aluno key={aluno.cpf} aluno={aluno} />
-          ))}
-        </ul>
-      </div>
     </section>
   )
 }
 
-export default FormularioAluno
+export default CadastroAluno
