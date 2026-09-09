@@ -1,0 +1,26 @@
+.campo-texto {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.campo-texto label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.campo-texto input {
+  font: inherit;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.campo-texto input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
