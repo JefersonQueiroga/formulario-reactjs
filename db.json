@@ -1,3 +1,19 @@
 {
-  "alunos": []
+  "alunos": [
+    {
+      "nome": "Ana Beatriz Souza",
+      "email": "ana.souza@example.com",
+      "cpf": "123.456.789-09",
+      "cidade": "Natal",
+      "id": "2FBx2MtkpQM"
+    },
+    {
+      "nome": "Jeferson Queirogfa ",
+      "email": "jefersonqueiroga@gmail.com",
+      "cpf": "05098819474",
+      "cidade": "Natal",
+      "id": "udkKfDFqcKg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
